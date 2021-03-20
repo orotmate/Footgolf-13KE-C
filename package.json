@@ -20,7 +20,7 @@
         "test": "jest || ECHO.",
         "dev": "nodemon"
     },
-    "author": "Hartyándi Zita",
+    "author": "Hartyándi Zita, Orot Máté",
     "license": "MIT",
     "dependencies": {
         "tslib": "^2.1.0"
