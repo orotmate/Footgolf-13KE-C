@@ -1,7 +1,7 @@
 {
-    "name": "jedlik-typescript-vscode-template",
+    "name": "jedlik-typescript-footgolf",
     "version": "1.0.0",
-    "description": "Jedlik project template for using TypeScript, Jest and Node.js in VS Code.",
+    "description": "Footgolf csoportos feladat megoldása.",
     "engines": {
         "node": "14.x"
     },
@@ -9,7 +9,7 @@
     "repository": {
         "private": true,
         "type": "git",
-        "url": "https://github.com/nitslaszlo/JedlikTsTemplate"
+        "url": "https://github.com/orotmate/Footgolf-13KE-C"
     },
     "scripts": {
         "start": "node ./dist/App.js",
@@ -20,7 +20,7 @@
         "test": "jest || ECHO.",
         "dev": "nodemon"
     },
-    "author": "Nits László",
+    "author": "Hartyándi Zita, Orot Máté",
     "license": "MIT",
     "dependencies": {
         "tslib": "^2.1.0"
