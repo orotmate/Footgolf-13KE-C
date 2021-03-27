@@ -7,15 +7,15 @@ export default class Megoldás{
     public get versenyzőkSzáma(): number{
         return this._versenyzők.length;
     }
-    public get nőiVersenyzőkSzáma(): number{
-        return this._versenyzők[1].kategória;
-    }
-    public get összPont(): number{
-        return this.
-    }
-    public get nőiBajnok(): string{
-        return this.
-    }
+    // public get nőiVersenyzőkSzáma(): number{
+    //     return this._versenyzők[1].kategória;
+    // }
+    // public get összPont(): number{
+    //     return this.
+    // }
+    // public get nőiBajnok(): string{
+    //     return this.
+    // }
     constructor(forrás: string){
         const sorok: string[] = fs.readFileSync(forrás).toString().split("\n");
         for (let i = 0; i < sorok.length; i++) {

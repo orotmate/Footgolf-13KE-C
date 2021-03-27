@@ -26,15 +26,11 @@ export default class Content {
 
         // Kezd a kódolást innen -->
 
-        res.write("3. feladat: \n");
-
         const megoldás: Megoldás = new Megoldás("fob2016.txt");
-        res.write(`Versenyzők száma: ${megoldás.versenyzőkSzáma}\n`);
-
-        let korod = parseInt(params.get("kor") as string);
-
-        res.write(`Kérem a korod: <input type='number' name='kor' value=${korod} style='max-width:100px;' onChange='this.form.submit();'>\n`);
-        res.write(`Te ${korod} éves vagy!\n`);
+        res.write(`3. feladat: Versenyzők száma: ${megoldás.versenyzőkSzáma}\n`);
+        res.write(`4. feladat: A női versenyzók aránya: ${-1}\n`)
+        res.write(`6. feladat: A bajnok női versenyző: ${-1}\n`)
+        res.write(`8. feladat: Egyesület statisztika: ${-1}\n`)
 
         // <---- Fejezd be a kódolást
 
