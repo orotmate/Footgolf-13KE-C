@@ -26,8 +26,11 @@ export default class Content {
 
         // Kezd a kódolást innen -->
 
-        res.write("3. feladat: \n");
-        res.write(`Versenyzők száma: ${megoldás.versenyzőkSzáma}\n`);
+        const megoldás: Megoldás = new Megoldás("fob2016.txt");
+        res.write(`3. feladat: Versenyzők száma: ${megoldás.versenyzőkSzáma}\n`);
+        res.write(`4. feladat: A női versenyzók aránya: ${-1}\n`)
+        res.write(`6. feladat: A bajnok női versenyző: ${-1}\n`)
+        res.write(`8. feladat: Egyesület statisztika: ${-1}\n`)
 
         // <---- Fejezd be a kódolást
 
