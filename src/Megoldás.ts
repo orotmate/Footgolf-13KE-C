@@ -7,9 +7,15 @@ export default class Megoldás{
     public get versenyzőkSzáma(): number{
         return this._versenyzők.length;
     }
-    // public get nőiVersenyzőkSzáma(): number{
-    //     return this._versenyzők[1].kategória;
-    // }
+    public get nőiVersenyzőkSzáma(): number{
+        let nőkSzáma = 0;
+        for (const db of this._versenyzők) {
+            if (db.kategória == "Noi"){
+                nőkSzáma++;
+            }
+        }
+        return this.nőiVersenyzőkSzáma 
+    }
     // public get összPont(): number{
     //     return this.
     // }

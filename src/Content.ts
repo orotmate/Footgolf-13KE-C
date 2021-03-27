@@ -2,6 +2,7 @@
 import http from "http";
 import url from "url";
 import Megoldás from "./Megoldás";
+import Versenyző from "./Versenyző";
 
 export default class Content {
     public static content(req: http.IncomingMessage, res: http.ServerResponse): void {
@@ -28,7 +29,7 @@ export default class Content {
 
         const megoldás: Megoldás = new Megoldás("fob2016.txt");
         res.write(`3. feladat: Versenyzők száma: ${megoldás.versenyzőkSzáma}\n`);
-        res.write(`4. feladat: A női versenyzók aránya: ${-1}\n`)
+        res.write(`4. feladat: A női versenyzók aránya: ${megoldás.nőiVersenyzőkSzáma / megoldás.versenyzőkSzáma}%\n`)
         res.write(`6. feladat: A bajnok női versenyző: ${-1}\n`)
         res.write(`8. feladat: Egyesület statisztika: ${-1}\n`)
 
