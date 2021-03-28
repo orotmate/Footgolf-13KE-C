@@ -29,7 +29,7 @@ export default class Content {
 
         const megoldás: Megoldás = new Megoldás("fob2016.txt");
         res.write(`3. feladat: Versenyzők száma: ${megoldás.versenyzőkSzáma}\n`);
-        res.write(`4. feladat: A női versenyzók aránya: ${megoldás.nőiVersenyzőkSzáma / megoldás.versenyzőkSzáma}%\n`)
+        res.write(`4. feladat: A női versenyzók aránya: ${(megoldás.nőiVersenyzőkSzáma * 100).toFixed(2)}%\n`);
         res.write(`6. feladat: A bajnok női versenyző: ${-1}\n`)
         res.write(`8. feladat: Egyesület statisztika: ${-1}\n`)
 
