@@ -5,6 +5,7 @@ export default class Versenyző{
     private _egyesület: string;
     private _pontok: number[] = [];
     
+    
     public get név(): string{
         return this._név;
     }
@@ -13,7 +14,27 @@ export default class Versenyző{
     }
     public get egyesület(): string{
         return this._egyesület;
+
+
     }
+
+//6.feladat
+public get osszpontSzam(): number {
+    let osszpont: number =0;
+    for (let i = 2; i< this._pontok.length; i++)
+    {
+        osszpont += this._pontok[i]
+    }
+    if (this._pontok[0] != 0)
+    {
+        osszpont += 10;
+    }
+    if (this._pontok[1] != 0)
+    {
+       osszpont += 10    
+    }
+    return osszpont;
+}
 
     public constructor(sor:string){
         const m: string[] = sor.split(";");
@@ -24,5 +45,6 @@ export default class Versenyző{
         for (let i = 3; i < m.length; i++) {
             this._pontok.push(parseInt(m[i]))
         }
+        this._pontok = this._pontok.sort((a,b) => a-b);
     }
 }

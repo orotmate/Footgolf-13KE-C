@@ -22,6 +22,29 @@ export default class Megoldás{
     // public get nőiBajnok(): string{
     //     return this.
     // }
+
+    public get nőiBajnok(): Versenyző {
+        const nőiVersenyzők: Versenyző[] = [];
+
+        for(const v of this._versenyzők) {
+            if(v.kategória == "Noi") {
+                nőiVersenyzők.push(v);
+            }
+        }
+         let nőiBajnok = nőiVersenyzők[0];
+         return nőiBajnok
+            for (let i = 1; i < nőiVersenyzők.length; i++) {
+              if (nőiVersenyzők[i].osszpontSzam > nőiBajnok.osszpontSzam)  
+              nőiBajnok = nőiVersenyzők[i];
+            }
+            return nőiBajnok;  
+        }
+        
+ 
+
+    }     
+
+
     constructor(forrás: string){
         const sorok: string[] = fs.readFileSync(forrás).toString().split("\n");
         for (let i = 0; i < sorok.length; i++) {
@@ -30,4 +53,3 @@ export default class Megoldás{
             }
         }
     }
-}
