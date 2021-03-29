@@ -18,9 +18,11 @@ export default class Versenyző{
 
     }
 
+=======
 //6.feladat
 public get osszpontSzam(): number {
     let osszpont: number =0;
+    this._pontok.sort();
     for (let i = 2; i< this._pontok.length; i++)
     {
         osszpont += this._pontok[i]

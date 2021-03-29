@@ -35,6 +35,7 @@ export default class Content {
         res.write(`\tNév: ${nőiBajnok.név}`);
         res.write(`\tEgyesület: ${nőiBajnok.egyesület}`);
         res.write(`\tÖsszpont: ${nőiBajnok.osszpontSzam}`);
+        res.write(`6. feladat: A bajnok női versenyző: ${-1}\n`)
         res.write(`8. feladat: Egyesület statisztika: ${-1}\n`)
 
         // <---- Fejezd be a kódolást
