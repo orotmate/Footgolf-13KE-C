@@ -14,7 +14,11 @@ export default class Versenyző{
     }
     public get egyesület(): string{
         return this._egyesület;
+
+
     }
+
+=======
 //6.feladat
 public get osszpontSzam(): number {
     let osszpont: number =0;
@@ -43,5 +47,6 @@ public get osszpontSzam(): number {
         for (let i = 3; i < m.length; i++) {
             this._pontok.push(parseInt(m[i]))
         }
+        this._pontok = this._pontok.sort((a,b) => a-b);
     }
 }
