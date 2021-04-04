@@ -16,7 +16,7 @@ export default class Megoldás{
                 nőkSzáma++;
             }
         }
-        return nőkSzáma / this._versenyzők.length;
+        return nőkSzáma;
     }
     // public get összPont(): number{
     //  return this.
