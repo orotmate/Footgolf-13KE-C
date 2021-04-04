@@ -17,8 +17,6 @@ export default class Versenyző{
 
 
     }
-
-=======
 //6.feladat
 public get osszpontSzam(): number {
     let osszpont: number =0;

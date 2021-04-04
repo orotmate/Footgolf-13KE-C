@@ -34,24 +34,21 @@ export default class Megoldás{
             }
         }
          let nőiBajnok = nőiVersenyzők[0];
-         return nőiBajnok
+        //  return nőiBajnok
             for (let i = 1; i < nőiVersenyzők.length; i++) {
               if (nőiVersenyzők[i].osszpontSzam > nőiBajnok.osszpontSzam)  
               nőiBajnok = nőiVersenyzők[i];
             }
             return nőiBajnok;  
         }
-        
- 
-
-    }     
 
 
-    constructor(forrás: string){
+    constructor(forrás: string) {
         const sorok: string[] = fs.readFileSync(forrás).toString().split("\n");
         for (let i = 0; i < sorok.length; i++) {
             if (sorok[i].length != 0){
                 this._versenyzők.push(new Versenyző(sorok[i]));
             }
-        }
+        }   
     }
+}
