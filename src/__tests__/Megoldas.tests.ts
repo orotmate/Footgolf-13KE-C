@@ -1,4 +1,5 @@
 import Megoldás from "../Megoldás";
+// Megoldás test.
 
 describe("Megoldás osztály tesztelése", () => {
     const Meg: Megoldás = new Megoldás("fob2016.txt");
