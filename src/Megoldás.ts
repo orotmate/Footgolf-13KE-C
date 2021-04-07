@@ -40,7 +40,9 @@ export default class Megoldás {
     }
 
     constructor(forrás: string) {
-        const sorok: string[] = fs.readFileSync(forrás).toString().split("\n");
+        const sorok: string[] = fs.readFileSync(forrás).toString().split("\n").map((item) => item.trim());
+        // console.log(sorok);
+        // map funkcioval trimmeltem minden elemet amit split-el elvalasztottunk mert a \r meg benne maradt. Ez beletartozik kicsit a code cleaningbe.
         for (let i = 0; i < sorok.length; i++) {
             if (sorok[i].length != 0) {
                 this._versenyzők.push(new Versenyző(sorok[i]));
