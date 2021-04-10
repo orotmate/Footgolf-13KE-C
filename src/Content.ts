@@ -11,8 +11,12 @@ export default class Content {
             res.writeHead(200, { "Content-Type": "image/x-icon" });
             fs.createReadStream("favicon.ico").pipe(res);
             return;
-        }
-        if (req.url === "/front-en.js") {
+        } else if (req.url === "/front-en.js") {
+            // Router a script általi statikus file kérésre
+            // Streamekkel is meglehetett volna oldani de maradtam az alap callback-es teljes bufferes versional.
+            // Még lehet átírom, hogy modernebb legyen és praktikusabb.
+            // valamint komolyabb hibakezelés még szükséges.
+
             fs.readFile("./src/front-en.js", (err, data) => {
                 if (err) {
                     res.writeHead(404);
@@ -24,8 +28,8 @@ export default class Content {
                 res.end(data);
                 return;
             });
-        }
-        if (req.url === "/osszpontFF.txt") {
+        } else if (req.url === "/osszpontFF.txt") {
+            // Router a fetch() API kérésére
             fs.readFile("./osszpontFF.txt", (err, data) => {
                 if (err) {
                     res.writeHead(404);
@@ -37,10 +41,9 @@ export default class Content {
                 res.end(data);
                 return;
             });
-        }
-        if (req.url === "/") {
+        } else if (req.url === "/") {
+            // Kellet külön egy Router a root / - hoz mivel nem tudtam a front-en.js statikus filet máshogyan feltölteni.
             // Weboldal inicializálása + head rész:
-            // res.setHeader("Content-Type", "text/javascript");
             res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
             res.write("<!DOCTYPE html>");
             res.write("<html lang='hu'>");
@@ -75,6 +78,9 @@ export default class Content {
             res.write(`<script src="front-en.js" type="text/javascript"></script>`);
             res.write("</body></html>");
             res.end();
+            return;
+            // Mindenhol meghagytam a returnt; ha esetleg később szükség lessz rá. Egyenlőre nem szükséges mivel a kód így is úgy is leáll az
+            // adott if vagy else if teljesülése eseten és end() miatt le is zárja a responset.
         }
     }
 }
