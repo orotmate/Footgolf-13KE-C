@@ -39,14 +39,32 @@ export default class Megoldás {
         return nőiBajnok;
     }
 
+    private osszpontFF(fileString: string) {
+        // egyszerűen legenerálom a filet mivel a front-end-ről fogom elérni később.
+        fs.writeFileSync("osszpontFF.txt", fileString);
+    }
+
     constructor(forrás: string) {
-        const sorok: string[] = fs.readFileSync(forrás).toString().split("\n").map((item) => item.trim());
+        const sorok: string[] = fs
+            .readFileSync(forrás)
+            .toString()
+            .split("\n")
+            .map(item => item.trim());
+        let fileString: string = "";
         // console.log(sorok);
         // map funkcioval trimmeltem minden elemet amit split-el elvalasztottunk mert a \r meg benne maradt. Ez beletartozik kicsit a code cleaningbe.
+
         for (let i = 0; i < sorok.length; i++) {
             if (sorok[i].length != 0) {
                 this._versenyzők.push(new Versenyző(sorok[i]));
+
+                // Itt a Versenyzők osztály és array generálását kihasználva egyből kialakítom az osszpontFF file-ba tartozó stringet.
+                if (this._versenyzők[i].kategória.includes("ferfi")) {
+                    fileString += `${this._versenyzők[i].név};${this._versenyzők[i].osszpontSzam}\n`;
+                }
             }
         }
+        // itt hívom meg
+        this.osszpontFF(fileString);
     }
 }
