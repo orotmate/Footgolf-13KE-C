@@ -22,7 +22,7 @@ describe("Versenyző osztály unit tesztek", () => {
 
     it("Versenyző egyesületének ellenőrzése", async () => {        
         expect(Versenyző1.egyesület).toBe("HOLE HUNTERS");
-        expect(Versenyző2.egyesület).toBe("ROYAL FOOTGOLF CLUBS");
+        expect(Versenyző2.egyesület).toBe("ROYAL FOOTGOLF CLUB");
     });
 
     it("Versenyző pontjainak tesztelése", async () => {
@@ -31,8 +31,8 @@ describe("Versenyző osztály unit tesztek", () => {
         expect(Versenyző1.pontok).toEqual(pontok);
         
         const pontok2: number[] = [74,74,80,74,74,80,80,74];
-        pontok.sort((a, b) => a - b);
-        expect(Versenyző2.pontok).toEqual(pontok);
+        pontok2.sort((a, b) => a - b);
+        expect(Versenyző2.pontok).toEqual(pontok2);
 
     });
 
