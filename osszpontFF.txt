@@ -1,13 +1,13 @@
 Albert Laszlo;30
-Bacskai Bence;541
-Bado Szilard;288
+Bacskai Bence;587
+Bado Szilard;305
 Bak Balazs;10
 Bako Attila;200
 Balan Zoltan;125
 Baranya Akos;60
 Bartal Peter;10
 Biro Laszlo;148
-Bogar Krisztian;490
+Bogar Krisztian;526
 Borbely Istvan;60
 Cziffra Zoltan;158
 Czirbus Tamas;380
@@ -30,7 +30,7 @@ Kiss Roland;10
 Koszegi Jozsef;10
 Kovacs Andras;52
 Kristof Gabor;30
-Lengyel Bela;446
+Lengyel Bela;469
 Lenkei Robert;10
 Lovasz Krisztian;10
 Ludovit Andrassy;10
@@ -42,11 +42,11 @@ Molnar Attila;101
 Nagy Balazs;162
 Nagy Gabor Milan;20
 Nemeth Ferenc;20
-Nemeth Gabor;457
+Nemeth Gabor;513
 Nemeth Peter;65
 Oszi Adam;10
 Pap Ferenc;236
-Papp Peter;475
+Papp Peter;511
 Poda Tamas;30
 Podusil Gyorgy;334
 Puklus Gabor;10

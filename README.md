@@ -2,12 +2,15 @@
 **Footgolf project feladat megoldása**
 
 ## Fejlesztéshez használt technológiák:
+- JavaScript
 - TypeScript
 - ESLint linter
 - Prettier forráskód formázó
-- Node.js http és fs modulok
+- Node.js http, fs, URL modulok
 - Nodemon
 - Jest JavaScript teszt framework
+- fetch API
+- Git
 
 ## Fordítás fejlesztéskor (fordítás, futtatás, nyomkövetés)
 npm run dev (vagy Ctrl-B)

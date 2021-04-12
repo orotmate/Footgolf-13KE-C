@@ -5,9 +5,17 @@ export default class Megoldás {
     private _versenyzők: Versenyző[] = [];
     private _newMap = new Map();
 
+    /**
+     * Versenyzők maximális számána
+     */
     public get versenyzőkSzáma(): number {
         return this._versenyzők.length;
     }
+
+    /**
+     * 4. feladat megoldásásának alapja.
+     * Vissza adja a Nők számát, melyet content.ts állományban százalékos formában jelenítünk meg
+     */
     public get nőiVersenyzőkSzáma(): number {
         let nőkSzáma = 0;
         for (const db of this._versenyzők) {
@@ -18,6 +26,10 @@ export default class Megoldás {
         return nőkSzáma;
     }
 
+    /**
+     * 6. feladat megoldása.
+     * Legtöbb pontott szerzett nő
+     */
     public get nőiBajnok(): Versenyző {
         const nőiVersenyzők: Versenyző[] = [];
 
@@ -27,7 +39,7 @@ export default class Megoldás {
             }
         }
         let nőiBajnok = nőiVersenyzők[0];
-        //  return nőiBajnok
+        
         for (let i = 1; i < nőiVersenyzők.length; i++) {
             if (nőiVersenyzők[i].osszpontSzam > nőiBajnok.osszpontSzam) nőiBajnok = nőiVersenyzők[i];
         }
@@ -43,8 +55,8 @@ export default class Megoldás {
     }
 
     /**
-     * egyesuletStat: 8. feladatnak megfelelő szűrés után String-ként adja vissza a constructorban a versenyzők egyesületei alapján
-     * létrehozott mappa objektumot.
+     * 8. feladatnak megfelelő szűrés után String-ként adja vissza a constructorban létrehozott mappa objektumot.
+     * Map(Egyesület: Tagjainak száma)
      * Szűrés: n.a.(egyesületen kívüli), [2,0] közötti versenyzőszám.
      */
     public get egyesuletStat() {
@@ -64,18 +76,16 @@ export default class Megoldás {
             .toString()
             .split("\n")
             .map(item => item.trim());
-        let fileString: string = "";
 
+        let fileString: string = "";
         let counter = 0;
         let carry;
-
-        // map funkcioval trimmeltem minden elemet amit split-el elvalasztottunk mert a \r meg benne maradt. Ez beletartozik kicsit a code cleaningbe.
 
         for (let i = 0; i < sorok.length; i++) {
             if (sorok[i].length != 0) {
                 this._versenyzők.push(new Versenyző(sorok[i]));
 
-                // Itt a Versenyzők osztály és array generálását kihasználva egyből kialakítom az osszpontFF file-ba tartozó stringet.
+                // 7.f. Itt a Versenyzők osztály és tömb generálását kihasználva egyből kialakítom az osszpontFF file-ba tartozó stringet.
                 if (this._versenyzők[i].kategória.includes("ferfi")) {
                     fileString += `${this._versenyzők[i].név};${this._versenyzők[i].osszpontSzam}\n`;
                 }
@@ -83,8 +93,8 @@ export default class Megoldás {
                 // 8. feladat elkészítése.
                 carry = this._versenyzők[i].egyesület; // Változó az átláthatóság kedvéért.
 
-                // Map objektumot használok kulcs-érték párokkal a statisztika elkészítéséhez melyet később szűrök.
-                if (this._newMap.has(carry)) {
+                // Map objektumot használ kulcs-érték párokkal a statisztika elkészítéséhez melyet később szűr.
+                if (this._newMap.has(carry)){
                     counter = this._newMap.get(carry);
                     this._newMap.set(carry, ++counter);
                 } else {
@@ -92,7 +102,7 @@ export default class Megoldás {
                 }
             }
         }
-        // itt hívom meg a file generátort.
+        // 7.f. itt hívom meg a file generátort.
         this.osszpontFF(fileString);
     }
 }

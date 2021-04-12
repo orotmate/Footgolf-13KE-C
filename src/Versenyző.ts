@@ -8,6 +8,7 @@ export default class Versenyző {
     public get név(): string {
         return this._név;
     }
+
     public get kategória(): string {
         return this._kategória;
     }
@@ -18,17 +19,14 @@ export default class Versenyző {
         return this._pontok;
     }
 
-    //6.feladat
+    /**
+     * Versenyző összpontszáma
+     */
     public get osszpontSzam(): number {
         let osszpont: number = 0;
-        for (let i = 2; i < this._pontok.length; i++) {
+
+        for (let i = 0; i < this._pontok.length; i++) {
             osszpont += this._pontok[i];
-        }
-        if (this._pontok[0] != 0) {
-            osszpont += 10;
-        }
-        if (this._pontok[1] != 0) {
-            osszpont += 10;
         }
         return osszpont;
     }
@@ -43,5 +41,6 @@ export default class Versenyző {
             this._pontok.push(parseInt(m[i]));
         }
         this._pontok = this._pontok.sort((a, b) => a - b);
+        
     }
 }
