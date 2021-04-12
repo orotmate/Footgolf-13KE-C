@@ -1,15 +1,21 @@
 import Versenyző from "./Versenyző";
 import fs from "fs";
+import { error } from "node:console";
 
 export default class Megoldás {
     private _versenyzők: Versenyző[] = [];
     private _newMap = new Map();
+    private _fileString: string = "";
 
     /**
      * Versenyzők maximális számána
      */
     public get versenyzőkSzáma(): number {
         return this._versenyzők.length;
+    }
+
+    public get fileString(): string {
+        return this._fileString;
     }
 
     /**
@@ -39,7 +45,7 @@ export default class Megoldás {
             }
         }
         let nőiBajnok = nőiVersenyzők[0];
-        
+
         for (let i = 1; i < nőiVersenyzők.length; i++) {
             if (nőiVersenyzők[i].osszpontSzam > nőiBajnok.osszpontSzam) nőiBajnok = nőiVersenyzők[i];
         }
@@ -51,6 +57,15 @@ export default class Megoldás {
      * @param fileString construktorban található fob2016.txt file 7. feladat kritériumainak megfelelően stringé alakított versiója
      */
     private osszpontFF(fileString: string) {
+        try {
+            if (fs.existsSync("osszpontFF.txt")) {
+                console.log("File exists");
+                return;
+            }
+        } catch (error) {
+            console.error(error);
+            return;
+        }
         fs.writeFileSync("osszpontFF.txt", fileString);
     }
 
@@ -67,6 +82,8 @@ export default class Megoldás {
                 stringOut += "\t" + i.join(" - ") + " fő\n";
             }
         }
+
+        console.log();
         return stringOut;
     }
 
@@ -77,7 +94,6 @@ export default class Megoldás {
             .split("\n")
             .map(item => item.trim());
 
-        let fileString: string = "";
         let counter = 0;
         let carry;
 
@@ -87,14 +103,14 @@ export default class Megoldás {
 
                 // 7.f. Itt a Versenyzők osztály és tömb generálását kihasználva egyből kialakítom az osszpontFF file-ba tartozó stringet.
                 if (this._versenyzők[i].kategória.includes("ferfi")) {
-                    fileString += `${this._versenyzők[i].név};${this._versenyzők[i].osszpontSzam}\n`;
+                    this._fileString += `${this._versenyzők[i].név};${this._versenyzők[i].osszpontSzam}\n`;
                 }
 
                 // 8. feladat elkészítése.
                 carry = this._versenyzők[i].egyesület; // Változó az átláthatóság kedvéért.
 
                 // Map objektumot használ kulcs-érték párokkal a statisztika elkészítéséhez melyet később szűr.
-                if (this._newMap.has(carry)){
+                if (this._newMap.has(carry)) {
                     counter = this._newMap.get(carry);
                     this._newMap.set(carry, ++counter);
                 } else {
@@ -103,6 +119,6 @@ export default class Megoldás {
             }
         }
         // 7.f. itt hívom meg a file generátort.
-        this.osszpontFF(fileString);
+        this.osszpontFF(this._fileString);
     }
 }

@@ -5,7 +5,6 @@
 // https://javascript.info/promise-basics itt találhattok egy nagyszerű leírást.
 // abban található a response is melyet belepumpál a .then() metódusba akárcsak a map(items, index, array)-nál az autómatikusan paraméterként felhasználható Tömb itemek.
 
-
 let fileFetch = fetch("/osszpontFF.txt");
 fileFetch
     .then(resolve => {
@@ -34,3 +33,4 @@ fileFetch
     .catch(error => console.log(error));
     // bármiféle hiba esetén pusztán kiiratom a szervertől kapott hibaüzenetet.
     // összetetteb hiba kezelés még szükséges.
+

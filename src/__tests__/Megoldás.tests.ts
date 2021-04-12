@@ -19,4 +19,12 @@ describe("Megoldás osztály tesztelése", () => {
     it("Női bajnok", async () => {
         expect(Meg.nőiBajnok.név).toBe("Major Ilona");
     });
+    it("osszpontFF stringjének File formátuma", async () => {
+        expect(Meg.fileString).toMatch(/(\w+?\s\w+?;\d+?\s)+?/);
+    });
+
+    it("Egyesület statisztika", async () => {
+        // expect(typeof Meg.egyesuletStat).toBe("string");
+        expect(Meg.egyesuletStat.includes("n.a.") && Meg.egyesuletStat.match("/[0-2]/")).toBeFalsy();
+    });
 });
